@@ -44,8 +44,6 @@
                     <destination>${user.home}/mirror/eclipse/updates/4.6</destination>
                 </configuration>
             </plugin>
-        </plugins>
-        <plugins>
             <plugin>
                 <groupId>org.eclipse.tycho.extras</groupId>
                 <artifactId>tycho-p2-extras-plugin</artifactId>
