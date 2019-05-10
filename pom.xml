@@ -32,39 +32,32 @@
                         <goals>
                             <goal>mirror</goal>
                         </goals>
+                        <configuration>
+                            <source>
+                                <repository>
+                                    <url>${eclipse_repo_url}</url>
+                                    <layout>p2</layout>
+                                </repository>
+                            </source>
+                            <destination>${user.home}/mirror/eclipse/updates/4.6</destination>
+                        </configuration>
                     </execution>
-                </executions>
-                <configuration>
-                    <source>
-                        <repository>
-                            <url>${eclipse_repo_url}</url>
-                            <layout>p2</layout>
-                        </repository>
-                    </source>
-                    <destination>${user.home}/mirror/eclipse/updates/4.6</destination>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.tycho.extras</groupId>
-                <artifactId>tycho-p2-extras-plugin</artifactId>
-                <version>${tycho.version}</version>
-                <executions>
                     <execution>
                         <id>mirror-egit-repo</id>
                         <goals>
                             <goal>mirror</goal>
                         </goals>
+                        <configuration>
+                            <source>
+                                <repository>
+                                    <url>${egit_repo_url}</url>
+                                    <layout>p2</layout>
+                                </repository>
+                            </source>
+                            <destination>${user.home}/mirror/egit/updates-4.4.1</destination>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <source>
-                        <repository>
-                            <url>${egit_repo_url}</url>
-                            <layout>p2</layout>
-                        </repository>
-                    </source>
-                    <destination>${user.home}/mirror/egit/updates-4.4.1</destination>
-                </configuration>
             </plugin>
         </plugins>
     </build>
