@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kms</groupId>
+    <artifactId>com.kms.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Katalon Studio</name>
+
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
+
+    <properties>
+        <tycho.version>1.4.0</tycho.version>
+        <eclipse_update_site>http://download.eclipse.org</eclipse_update_site>
+        <eclipse_repo_url>${eclipse_update_site}/eclipse/updates/4.6/</eclipse_repo_url>
+        <egit_repo_url>${eclipse_update_site}/egit/updates-4.4.1/</egit_repo_url>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.tycho.extras</groupId>
+                <artifactId>tycho-p2-extras-plugin</artifactId>
+                <version>${tycho.version}</version>
+                <executions>
+                    <execution>
+                        <id>mirror</id>
+                        <goals>
+                            <goal>mirror</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>
+                        <repository>
+                            <url>${eclipse_repo_url}</url>
+                            <layout>p2</layout>
+                        </repository>
+                        <repository>
+                            <url>${egit_repo_url}</url>
+                            <layout>p2</layout>
+                        </repository>
+                    </source>
+                    <destination>${user.home}/mirror</destination>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
